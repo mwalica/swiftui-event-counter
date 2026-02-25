@@ -11,11 +11,12 @@ import SwiftData
 @Model
 class Type {
     var name: String
-    var archive: Bool = false
+    var isArchive: Bool
     @Relationship(deleteRule: .cascade, inverse: \Event.type)
     var events: [Event]?
-    
-    init (name: String) {
+
+    init(name: String, isArchive: Bool = false) {
         self.name = name
+        self.isArchive = isArchive
     }
 }

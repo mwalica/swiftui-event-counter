@@ -13,12 +13,12 @@ class Event {
     var type: Type
     var eventDate: Date
     var amount: Int
-    var description: String?
+    var desc: String?
 
-    init(type: Type, eventDate: Date, amount: Int, description: String? = nil) {
+    init(type: Type, eventDate: Date, amount: Int, desc: String? = nil) {
         self.type = type
         self.eventDate = eventDate
         self.amount = amount
-        self.description = description
+        self.desc = desc
     }
 }

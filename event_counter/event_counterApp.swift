@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct event_counterApp: App {
@@ -13,5 +14,6 @@ struct event_counterApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [Event.self, Type.self])
     }
 }

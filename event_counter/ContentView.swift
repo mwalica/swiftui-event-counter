@@ -18,6 +18,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Types", systemImage: "square.grid.2x2")
                 }
+            ArchiveListView()
+                .tabItem {
+                    Label("Archive", systemImage: "archivebox")
+                }
         }
     }
 }

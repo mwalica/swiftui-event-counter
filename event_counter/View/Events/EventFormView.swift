@@ -30,7 +30,7 @@ struct EventFormView: View {
             Form {
                 Section("Event") {
                     Picker("Event Type", selection: $selectedType) {
-                        Text("Brak").tag(Optional<Type>.none)
+                        Text("").tag(Optional<Type>.none)
                         ForEach(types) { type in
                             Text(type.name).tag(Optional(type))
                         }

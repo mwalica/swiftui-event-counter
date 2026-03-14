@@ -1,27 +1,26 @@
 //
-//  EventsListView.swift
+//  ArchiveListView.swift
 //  event_counter
 //
-//  Created by Marek Walica on 25/02/2026.
+//  Created by Marek Walica on 05/03/2026.
 //
 
 import SwiftData
 import SwiftUI
 
-struct EventsListView: View {
+struct ArchiveListView: View {
 
-    @Query(filter: #Predicate<Type> {!$0.isArchive}, sort: \Type.name) private var types: [Type]
-    @State private var showAddSheet = false
+    @Query(filter: #Predicate<Type> { $0.isArchive }, sort: \Type.name) private
+        var types: [Type]
     @State private var eventToEdit: Event?
     @State private var selectedType: Type? = nil
 
     var body: some View {
         NavigationStack {
-            EventsListContent(
+            ArchiveListContent(
                 selectedType: selectedType,
-                eventToEdit: $eventToEdit
             )
-            .navigationTitle("Events")
+            .navigationTitle("Archived Events")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu("Filter", systemImage: "line.3.horizontal.decrease") {
@@ -35,28 +34,14 @@ struct EventsListView: View {
                     }
                 }
 
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showAddSheet = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                }
-
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
-            }
-            .sheet(isPresented: $showAddSheet) {
-                EventFormView()
-            }
-            .sheet(item: $eventToEdit) { event in
-                EventFormView(event: event)
             }
         }
     }
 }
 
-#Preview {
-    EventsListView()
-}
+//#Preview {
+//    ArchiveListView()
+//}

@@ -16,4 +16,5 @@ struct event_counterApp: App {
         }
         .modelContainer(for: [Event.self, Type.self])
     }
+    
 }
